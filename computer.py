@@ -26,18 +26,23 @@ class Computer:
         self.year_made = year_made
         self.price = price
     
-    def main():
-       computer = Computer(
-           "Mac Pro (Late 2013)",
-           "3.5 GHc 6-Core Intel Xeon E5",
-           1024, 64,
-           "macOS Big Sur", 2013, 1500
-          )
-    
-    print(computer.description)
+    def update_os(self, new_os):
+       self.operating_system = new_os
+
+def main():
+    computer = Computer(
+        "Mac Pro (Late 2013)",
+        "3.5 GHc 6-Core Intel Xeon E5",
+        1024, 64,
+        "macOS Big Sur", 2013, 1500
+        )
+    print(computer.__dict__)
+    os = input("Enter new_os:")
+    computer.update_os(os)
+    print(computer.__dict__)
+
+
     # What methods will you need?
-    def updateprice(price):
-        
-    
 if __name__ == "__main__":
     main()
+    
