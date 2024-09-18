@@ -1,3 +1,8 @@
+"""
+Author: Yvonne Liang
+Date: September 17th 2024
+Description: Creation of a computer class
+"""
 class Computer:
 
     # What attributes will it need?

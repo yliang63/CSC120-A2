@@ -29,7 +29,7 @@ ____ 1 pt: Can successfully add a new `Computer` to the inventory
 
 ____ 1 pt: Can successfully remove a `Computer` from the inventory
 
-____ 1 pt: Can successfully update the price/OS of a `Computer` contained in the inventory
+____ 1 pt: Can successfully update the price/OS of a `Computer` contained in the inventoryyes
 
 ____ 1 pt: Program prints appropriate error messages
 
@@ -37,7 +37,7 @@ ____ 1 pt: Program prints appropriate error messages
 
 _____ 4 pts: Program executes fully & consistently without crashing (exception/freeze)
 
-_____ 1 pt: Classes & class members all have header comments
+_____ 1 pt: Classes & class members all have header comments yes
 
 _____ 1 pt: Clear and consistent indentation
 
