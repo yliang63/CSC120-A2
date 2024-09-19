@@ -25,13 +25,13 @@ ____ 1 pt: Constructor for `ResaleShop` class is present and sets attributes cor
 
 ### Level 3 (4 pts)
 
-____ 1 pt: Can successfully add a new `Computer` to the inventory
+____ 1 pt: Can successfully add a new `Computer` to the inventory yes
 
-____ 1 pt: Can successfully remove a `Computer` from the inventory
+____ 1 pt: Can successfully remove a `Computer` from the inventory yes
 
-____ 1 pt: Can successfully update the price/OS of a `Computer` contained in the inventoryyes
+____ 1 pt: Can successfully update the price/OS of a `Computer` contained in the inventory yes
 
-____ 1 pt: Program prints appropriate error messages
+____ 1 pt: Program prints appropriate error messages yes
 
 ## General Items (10 pts):
 
@@ -39,12 +39,12 @@ _____ 4 pts: Program executes fully & consistently without crashing (exception/f
 
 _____ 1 pt: Classes & class members all have header comments yes
 
-_____ 1 pt: Clear and consistent indentation
+_____ 1 pt: Clear and consistent indentation yes
 
-_____ 1 pt: Adheres to conventions on naming / capitalization
+_____ 1 pt: Adheres to conventions on naming / capitalization yes
 
-_____ 1 pt: Methods and variables all have clear and descriptive names
+_____ 1 pt: Methods and variables all have clear and descriptive names yes
 
-_____ 1 pt: All required files included with submission (including completed checklist file)
+_____ 1 pt: All required files included with submission (including completed checklist file) yes
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+_____ 1 pt: `reflection.md` contains your reflection on the assignment yes
