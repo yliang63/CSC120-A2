@@ -18,21 +18,13 @@ class ResaleShop:
         self.itemID += 1 # increment itemID
         self.inventory[self.itemID] = computer
         return self.itemID
-
-    def update_price(self,item_id: int, new_price: int):
-        if item_id in self.inventory:
-            self.inventory[item_id]["price"] = new_price
-        else:
-            print("Item", item_id, "not found. Cannot update price.")
-
-
+    
     def sell(self,item_id: int):
         if item_id in self.inventory:
             del self.inventory[item_id]
             print("Item", item_id, "sold!")
         else: 
             print("Item", item_id, "not found. Please select another item to sell.")
-
 
     def print_inventory(self):
     # If the inventory is not empty

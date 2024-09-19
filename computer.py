@@ -34,6 +34,9 @@ class Computer:
     def update_os(self, new_os):
        self.operating_system = new_os
 
+    def update_price(self, new_price):
+       self.price= new_price
+
 def main():
     computer = Computer(
         "Mac Pro (Late 2013)",
