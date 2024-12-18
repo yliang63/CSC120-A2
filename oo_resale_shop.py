@@ -1,27 +1,26 @@
 """
 Author: Yvonne Liang
 Date: September 17th 2024
-Description: A class representing a resale shop for managing computer inventory.
+Description: A class representing a resale shop for managing computer inventory using the Computer class.
 """
 
-from typing import Dict, Optional
+from typing import List
+from computer import Computer
 
 class ResaleShop:
     """
-    Represents a resale shop that manages a computer inventory.
+    Represents a resale shop that manages a computer inventory using instances of the Computer class.
 
     Attributes:
         itemID (int): A unique identifier for each item in the inventory.
-        inventory (Dict[int, Dict]): A dictionary containing the inventory items,
-            where each key is an item ID and each value is another dictionary with
-            the item's details.
+        inventory (List[Computer]): A list containing the inventory items, where each element is an instance of the Computer class.
 
     Methods:
         __init__: Initializes a new instance of the ResaleShop class.
-        buy: Adds a new computer to the inventory.
-        sell: Removes a computer from the inventory.
+        buy: Adds a new Computer instance to the inventory.
+        sell: Removes a Computer instance from the inventory.
         print_inventory: Prints the current inventory.
-        refurbish: Refurbishes a computer in the inventory, updating its price and OS.
+        refurbish: Refurbishes a Computer instance in the inventory, updating its price and OS.
     """
 
     def __init__(self):
@@ -29,34 +28,36 @@ class ResaleShop:
         Initializes a new instance of the ResaleShop class.
         """
         self.itemID = 0
-        self.inventory: Dict[int, Dict] = {}
+        self.inventory: List[Computer] = []
 
-    def buy(self, computer: Dict):
+    def buy(self, computer: Computer):
         """
-        Adds a new computer to the inventory.
+        Adds a new Computer instance to the inventory.
 
         Args:
-            computer (Dict): A dictionary containing the details of the computer to be added.
+            computer (Computer): An instance of the Computer class to be added.
 
         Returns:
             int: The item ID assigned to the new computer.
         """
-        self.itemID += 1  # increment itemID
-        self.inventory[self.itemID] = computer
+        self.itemID += 1
+        computer.id = self.itemID
+        self.inventory.append(computer)
         return self.itemID
 
     def sell(self, item_id: int):
         """
-        Removes a computer from the inventory.
+        Removes a Computer instance from the inventory.
 
         Args:
             item_id (int): The item ID of the computer to be removed.
         """
-        if item_id in self.inventory:
-            del self.inventory[item_id]
-            print("Item", item_id, "sold!")
-        else:
-            print("Item", item_id, "not found. Please select another item to sell.")
+        for i, computer in enumerate(self.inventory):
+            if computer.id == item_id:
+                del self.inventory[i]
+                print("Item", item_id, "sold!")
+                return
+        print("Item", item_id, "not found. Please select another item to sell.")
 
     def print_inventory(self):
         """
@@ -64,36 +65,36 @@ class ResaleShop:
         """
         # If the inventory is not empty
         if self.inventory:
-            # For each item
-            for item_id in self.inventory:
+            # For each computer
+            for computer in self.inventory:
                 # Print its details
-                print(f'Item ID: {item_id} : {self.inventory[item_id]}')
+                print(f'Item ID: {computer.id} : {computer.__dict__}')
         else:
             print("No inventory to display.")
 
-    def refurbish(self, item_id: int, new_os: Optional[str] = None):
+    def refurbish(self, item_id: int, new_os: str = None):
         """
-        Refurbishes a computer in the inventory, updating its price and OS.
+        Refurbishes a Computer instance in the inventory, updating its price and OS.
 
         Args:
             item_id (int): The item ID of the computer to be refurbished.
-            new_os (Optional[str]): The new operating system to be installed, if any.
+            new_os (str): The new operating system to be installed, if any.
         """
-        if item_id in self.inventory:
-            computer = self.inventory[item_id]  # locate the computer
-            if int(computer["year_made"]) < 2000:
-                computer["price"] = 0  # too old to sell, donation only
-            elif int(computer["year_made"]) < 2012:
-                computer["price"] = 250  # heavily-discounted price on machines 10+ years old
-            elif int(computer["year_made"]) < 2018:
-                computer["price"] = 550  # discounted price on machines 4-to-10 year old machines
-            else:
-                computer["price"] = 1000  # recent stuff
+        for computer in self.inventory:
+            if computer.id == item_id:
+                if computer.year_made < 2000:
+                    computer.price = 0
+                elif computer.year_made < 2012:
+                    computer.price = 250
+                elif computer.year_made < 2018:
+                    computer.price = 550
+                else:
+                    computer.price = 1000
 
-            if new_os is not None:
-                computer["operating_system"] = new_os  # update details after installing new OS
-        else:
-            print("Item", item_id, "not found. Please select another item to refurbish.")
+                if new_os:
+                    computer.update_os(new_os)
+                return
+        print("Item", item_id, "not found. Please select another item to refurbish.")
 
 def main():
     myshop = ResaleShop()
