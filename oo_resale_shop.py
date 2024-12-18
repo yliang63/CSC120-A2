@@ -63,11 +63,8 @@ class ResaleShop:
         """
         Prints the current inventory.
         """
-        # If the inventory is not empty
         if self.inventory:
-            # For each computer
             for computer in self.inventory:
-                # Print its details
                 print(f'Item ID: {computer.id} : {computer.__dict__}')
         else:
             print("No inventory to display.")

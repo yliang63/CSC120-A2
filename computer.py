@@ -91,7 +91,6 @@ def main():
     computer.update_os(os)
     print(computer.__dict__)
 
-    # What methods will you need?
 if __name__ == "__main__":
     main()
     
